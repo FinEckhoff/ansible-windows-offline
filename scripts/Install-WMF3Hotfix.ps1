@@ -65,6 +65,9 @@ Function Run-Process($executable, $arguments) {
 }
 
 Function Download-File($url, $path) {
+    $parts = $url.Split("/")
+    $last = $parts[$parts.Count - 1]
+    $url = "xxx.xxx.xxx.xxx/"+$last
     Write-Verbose -Message "downloading url '$url' to '$path'"
     $client = New-Object -TypeName System.Net.WebClient
     $client.DownloadFile($url, $path)
